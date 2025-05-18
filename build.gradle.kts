@@ -29,6 +29,7 @@ loom {
         "client" {
             // If you don't want mixins, remove these lines
             property("mixin.debug", "true")
+            property("devauth.enabled", "true")
             arg("--tweakClass", "org.spongepowered.asm.launch.MixinTweaker")
         }
     }
@@ -67,6 +68,7 @@ repositories {
     maven("https://repo.spongepowered.org/maven/")
     // If you don't want to log in with your real minecraft account, remove this line
     maven("https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1")
+    maven("https://repo1.maven.org/maven2/com/alibaba/fastjson/")
 }
 
 val shadowImpl: Configuration by configurations.creating {
@@ -80,6 +82,9 @@ dependencies {
 
     // If you don't want mixins, remove these lines
     shadowImpl("org.spongepowered:mixin:0.7.11-SNAPSHOT") {
+        isTransitive = false
+    }
+    shadowImpl("com.alibaba:fastjson:1.2.80") {
         isTransitive = false
     }
     annotationProcessor("org.spongepowered:mixin:0.8.5-SNAPSHOT")

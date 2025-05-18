@@ -1,4 +1,4 @@
-package com.github.tunafish2k.tunaextension.mixin;
+package tunafish2k.tunaextension.mixin;
 
 import net.minecraft.client.gui.GuiMainMenu;
 import org.spongepowered.asm.mixin.Mixin;
